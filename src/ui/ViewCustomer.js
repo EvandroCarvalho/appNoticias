@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { View, Image, Text, StyleSheet, Linking } from 'react-native';
+import { View, Text, StyleSheet, Linking } from 'react-native';
+import Image from 'react-native-image-progress';
+import ProgressBar from 'react-native-progress/CircleSnail';
 
 export default class ViewCustomer extends Component {
 
@@ -10,13 +12,15 @@ export default class ViewCustomer extends Component {
         }
     }
 
+
     render (){
         return (
             <View style = {styles.viewComponent} >
                 <Image
                     style = {styles.viewImage}
-                    source = {{uri: this.props.image, cache: 'force-cache'}}
-                />
+                    source = {{uri: this.props.image}}
+                    indicator={ProgressBar}
+                    />
                 <View style = {styles.viewText}>
                     <Text style = {styles.textTitle} >{this.props.title}</Text>
                     <Text style = {styles.textDescription} >{this.props.description}</Text>
